@@ -15,7 +15,7 @@ function setMode(m){mode=m;$$(".mission-tab").forEach(b=>b.classList.toggle("act
 function generate(){
 const f=pick(fruit),g=pick(fruit.filter(x=>x.name!==f.name)),customer=pick(customers),t={level,mode,fruit:f,other:g,customer};
 if(mode==="basket"){const min=[0,3,4,5,7,9,12][level],max=[0,8,10,14,18,24,30][level];t.target=rand(min,max);t.answer=t.target;t.prompt=level<=2?"Could you put "+t.target+" "+f.name+(t.target===1?"":"s")+" in my basket?":"My market picnic needs "+t.target+" "+f.name+"s. Can you count out exactly that many?";t.hint="Tap the requested fruit one at a time. Count the basket until it shows "+t.target+"."}
-if(mode==="coins"){t.target=level<=2?rand(1,9)*10:rand(level<=4?2:12,level<=4?15:45)*10+pick([0,5]);t.answer=t.target;t.prompt=(level<=2?"This snack costs ":"Your market order costs ")+cash(t.target)+". Choose coins to pay exactly!";t.hint="Try making dollars first, then add the cents. Tap a selected coin again to put it back."}
+if(mode==="coins"){t.target=level<=2?rand(1,9)*10:rand(level<=4?2:12,level<=4?15:45)*10+pick([0,5]);t.answer=t.target;t.prompt=(level<=2?"This snack costs ":"Your market order costs ")+cash(t.target)+". Choose coins to pay exactly!";t.hint="Try making dollars first, then add the cents. Tap coins to add them; choose Return all coins to start over."}
 if(mode==="order"){
 if(level<=2){t.a=rand(2,level===1?6:9);t.b=rand(1,level===1?5:8);t.op=pick(["+","−"])}
 else if(level<=4){t.a=rand(3,level===3?9:12);t.b=rand(2,level===3?8:12);t.op=pick(["+","−","×"])}
